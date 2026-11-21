@@ -220,7 +220,7 @@ ruby rt{font-size:.5em;font-weight:600;color:#666;letter-spacing:0}
       <ul class="explain"><li>考えていたのではなく、玉を引いていただけ。</li><li>同じことを聞いても、毎回同じ答えとはかぎらない。</li><li>合っているかは、自分でたしかめよう。</li></ul><div class="barbox"><div class="bcap"><ruby>教<rt>おし</rt></ruby>えると、<ruby>玉<rt>たま</rt></ruby>の<ruby>数<rt>かず</rt></ruby>が<ruby>変<rt>か</rt></ruby>わる。<ruby>答<rt>こた</rt></ruby>えの<ruby>種類<rt>しゅるい</rt></ruby>は<ruby>同<rt>おな</rt></ruby>じ。</div><div class="bleg"><span><i class="bsw pre"></i>うすい＝<ruby>教<rt>おし</rt></ruby>える<ruby>前<rt>まえ</rt></ruby></span><span><i class="bsw"></i>こい＝<ruby>教<rt>おし</rt></ruby>えたあと</span></div><div class="bars" id="bars"></div></div><ul class="explain"><li>ほんものは、これを1<ruby>語<rt>ご</rt></ruby>ずつ、<ruby>何回<rt>なんかい</rt></ruby>もくり<ruby>返<rt>かえ</rt></ruby>して<ruby>文<rt>ぶん</rt></ruby>を<ruby>作<rt>つく</rt></ruby>っている。</li></ul><div class="msg" id="msg" style="display:none"></div>
       <div class="final" id="final"><ruby>文章<rt>ぶんしょう</rt></ruby>を<ruby>書<rt>か</rt></ruby>くAIも、たくさんの<ruby>文<rt>ぶん</rt></ruby>から、ありそうな<ruby>続<rt>つづ</rt></ruby>きを<ruby>確率<rt>かくりつ</rt></ruby>で<ruby>選<rt>えら</rt></ruby>んでいる。いちばんらしい<ruby>答<rt>こた</rt></ruby>えは、いちばん<ruby>正<rt>ただ</rt></ruby>しい？</div>
       <button class="again" id="again" style="display:none">もう一度見る</button>
-      <div class="qrwrap" id="qrwrap"><div class="qrimg" id="qrimg"></div><div class="qcap">スマホで<ruby>開<rt>ひら</rt></ruby>くと、<ruby>結果<rt>けっか</rt></ruby>をほぞんできます</div></div>
+      <div class="qrwrap" id="qrwrap"><a id="qrlink" href="#" target="_blank" rel="noopener" style="display:block;cursor:pointer" aria-label="結果ページを開く"><div class="qrimg" id="qrimg"></div></a><div class="qcap" id="qcap">スマホで<ruby>開<rt>ひら</rt></ruby>くと、<ruby>結果<rt>けっか</rt></ruby>をほぞんできます</div><a id="qrbtn" href="#" target="_blank" rel="noopener" style="display:none;margin:12px auto 2px;padding:12px 22px;min-height:48px;border-radius:14px;background:var(--pink);color:#fff;font-size:18px;font-weight:700;text-decoration:none">けっかのページを<ruby>開<rt>ひら</rt></ruby>く</a></div>
       <div><button class="next" id="next">次の人へ</button></div>
     </div>
     <div class="note" id="note" style="min-height:30px"></div>
@@ -2796,7 +2796,7 @@ function showQR(){
     const url=RESULT_BASE_URL+"#"+(lastPayload||makePayload());
     const q=qrcode(0,"M"); q.addData(url,"Byte"); q.make();
     $("qrimg").innerHTML=q.createSvgTag({cellSize:4,margin:4,scalable:true});
-    $("qrimg").dataset.url=url; $("qrimg").dataset.ver=String((q.getModuleCount()-17)/4);
+    $("qrimg").dataset.url=url; $("qrlink").href=url; $("qrbtn").href=url; if(isPhone()){ $("qrbtn").style.display="inline-block"; $("qcap").innerHTML="QRコードをタップしても、<ruby>結果<rt>けっか</rt></ruby>のページが<ruby>開<rt>ひら</rt></ruby>きます"; } $("qrimg").dataset.ver=String((q.getModuleCount()-17)/4);
     $("qrwrap").classList.add("on"); requestAnimationFrame(()=>$("qrwrap").scrollIntoView({behavior:"smooth",block:"center"}));
   }catch(e){ clearQR(); }
 }
