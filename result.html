@@ -101,7 +101,7 @@ function fail(why){
   document.getElementById("main").innerHTML='<div class="panel err">けっかを<ruby>読<rt>よ</rt></ruby>みこめませんでした。<br>QRコードを、もう<ruby>一度<rt>いちど</rt></ruby><ruby>読<rt>よ</rt></ruby>みこんでみてね。<div style="font-size:12px;color:#999;margin-top:10px">code: '+esc(why||'?')+' / r17</div></div>';
 }
 function render(){
-  if(!(location.hash||"").replace(/^#/,"")) return fail("nohash");
+  if(!(location.hash||"").replace(/^#/,"")){ document.getElementById("main").innerHTML='<div class="panel err">このページは、<ruby>遊<rt>あそ</rt></ruby>んだあとに<ruby>出<rt>で</rt></ruby>るQRコードから<ruby>開<rt>ひら</rt></ruby>いてね。<br><a href="play.html">マシンで<ruby>遊<rt>あそ</rt></ruby>ぶ</a></div>'; return; }
   let p; try{ p=decode(location.hash); }catch(e){ return fail("decode"); }
   if(!p||typeof p!=="object") return fail("empty");
   if(p.v!==2) return fail("old-v"+p.v);
