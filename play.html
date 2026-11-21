@@ -2762,9 +2762,47 @@ const RESULT_BASE_URL = 'https://dbycwyz.github.io/mottomo/result.html';
 const LOG_KEY = 'mottomo_log_v1';
 const PLAY_KEY = 'mottomo_playcount_v1'; // per-device plays, survives 記録を消す
 function bumpPlay(){ const n=(parseInt(localStorage.getItem(PLAY_KEY)||'0',10)||0)+1; localStorage.setItem(PLAY_KEY,String(n)); return n; }
-const FORM_ACTION_URL = ''; // TODO: form endpoint (undecided). Empty = queue only, never send.
+const FORM_ACTION_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdeOWuGB9o6j3JLXqVDBgTgF9EI6o2V6-wk6l3W8BWvqShciA/formResponse';
+const FORM_ENTRIES = {rid:'entry.387753881',dev:'entry.1332591886',pc:'entry.1510623458',play:'entry.150916336',t:'entry.1998222101',sc:'entry.1991554375',title:'entry.1646576084',flipped:'entry.729145505',choice:'entry.1134979079',before:'entry.2063990160',given:'entry.463559846',after:'entry.1743517538',same:'entry.1570471281',draws:'entry.122949850'};
 const OUTBOX_KEY = 'mottomo_outbox_v1';
-function queueOutbox(rec){ try{ const q=JSON.parse(localStorage.getItem(OUTBOX_KEY)||'[]'); if(!q.some(x=>x.rid===rec.rid)){ q.push(rec); localStorage.setItem(OUTBOX_KEY, JSON.stringify(q)); } }catch(e){} }
+let flushInFlight=false, flushAgain=false;
+function readOutbox(){ try{ const q=JSON.parse(localStorage.getItem(OUTBOX_KEY)||'[]'); return Array.isArray(q)?q:[]; }catch(e){ return []; } }
+function writeOutbox(q){ try{ localStorage.setItem(OUTBOX_KEY, JSON.stringify(q)); }catch(e){} }
+function recToParams(rec){
+  const p=new URLSearchParams();
+  Object.keys(FORM_ENTRIES).forEach(k=>{
+    let v=rec[k];
+    if(v==null) v='';
+    else if(typeof v==='object') v=Array.isArray(v)?v.join(','):JSON.stringify(v);
+    else v=String(v);
+    if(v.length>1500) v=v.slice(0,1500);
+    p.append(FORM_ENTRIES[k], v);
+  });
+  return p;
+}
+function queueOutbox(rec){
+  try{ const q=readOutbox(); if(rec&&rec.rid&&!q.some(x=>x.rid===rec.rid)){ q.push(rec); writeOutbox(q); } }catch(e){}
+  flushOutbox();
+}
+function flushOutbox(){
+  if(!FORM_ACTION_URL) return;
+  if(flushInFlight){ flushAgain=true; return; }
+  flushInFlight=true; flushAgain=false;
+  (async()=>{
+    try{
+      const seen=new Set(), uniq=[];
+      readOutbox().forEach(rec=>{ if(rec&&rec.rid&&!seen.has(rec.rid)){ seen.add(rec.rid); uniq.push(rec); } });
+      const sent=new Set();
+      for(const rec of uniq){
+        try{ await fetch(FORM_ACTION_URL,{method:'POST',mode:'no-cors',credentials:'omit',body:recToParams(rec)}); sent.add(rec.rid); }
+        catch(e){}
+      }
+      if(sent.size) writeOutbox(readOutbox().filter(x=>!x||!sent.has(x.rid)));
+    }catch(e){}
+    finally{ flushInFlight=false; if(flushAgain) flushOutbox(); }
+  })();
+}
+addEventListener('online',()=>{ try{ flushOutbox(); }catch(e){} });
 const PC_KEY = 'mottomo_pc_v1'; // staff setting, survives 記録を消す
 function isPhone(){ return /iPhone|iPod|Android.+Mobile|Windows Phone/i.test(navigator.userAgent) || (matchMedia("(pointer:coarse)").matches && Math.min(screen.width,screen.height)<600); }
 function getPC(){ const n=parseInt(localStorage.getItem(PC_KEY)||'1',10); return n>0?n:1; }
@@ -2881,5 +2919,6 @@ $("pin").addEventListener("click",e=>{ if(e.target===$("pin")) pinClose(); });
 addEventListener("keydown",e=>{ if(e.key==="Escape") pinClose(); });
 { let taps=[]; $("foot").addEventListener("click",()=>{ const t=Date.now(); taps=taps.filter(x=>t-x<2000); taps.push(t); if(taps.length>=5){ taps=[]; pinOpen(); } }); }
 build(); poke();
+try{ flushOutbox(); }catch(e){}
 </script>
 </body></html>
