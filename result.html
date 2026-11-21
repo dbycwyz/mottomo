@@ -97,17 +97,21 @@ function decode(h){
 }
 const TAKEAWAY=["{考|かんが}えていたのではなく、{玉|たま}を{引|ひ}いていただけ。","{同|おな}じことを{聞|き}いても、{毎回|まいかい}{同|おな}じ{答|こた}えとはかぎらない。","{合|あ}っているかは、{自分|じぶん}でたしかめよう。","{教|おし}えると、{玉|たま}の{数|かず}が{変|か}わる。{答|こた}えの{種類|しゅるい}は{同|おな}じ。","ほんものは、これを1{語|ご}ずつ、{何回|なんかい}もくり{返|かえ}して{文|ぶん}を{作|つく}っている。"];
 const FINAL="{文章|ぶんしょう}を{書|か}くAIも、たくさんの{文|ぶん}から、ありそうな{続|つづ}きを{確率|かくりつ}で{選|えら}んでいる。いちばんらしい{答|こた}えは、いちばん{正|ただ}しい？";
-function fail(){
-  document.getElementById("main").innerHTML='<div class="panel err">けっかを<ruby>読<rt>よ</rt></ruby>みこめませんでした。<br>QRコードを、もう<ruby>一度<rt>いちど</rt></ruby><ruby>読<rt>よ</rt></ruby>みこんでみてね。</div>';
+function fail(why){
+  document.getElementById("main").innerHTML='<div class="panel err">けっかを<ruby>読<rt>よ</rt></ruby>みこめませんでした。<br>QRコードを、もう<ruby>一度<rt>いちど</rt></ruby><ruby>読<rt>よ</rt></ruby>みこんでみてね。<div style="font-size:12px;color:#999;margin-top:10px">code: '+esc(why||'?')+' / r17</div></div>';
 }
 function render(){
-  let p; try{ p=decode(location.hash); }catch(e){ p=null; }
-  if(!p||typeof p!=="object"||p.v!==2||p.h!==DATA_FP||!DATA[p.s]) return fail();
+  if(!(location.hash||"").replace(/^#/,"")) return fail("nohash");
+  let p; try{ p=decode(location.hash); }catch(e){ return fail("decode"); }
+  if(!p||typeof p!=="object") return fail("empty");
+  if(p.v!==2) return fail("old-v"+p.v);
+  if(p.h!==DATA_FP) return fail("data-"+p.h+"-"+DATA_FP);
+  if(!DATA[p.s]) return fail("story-"+p.s);
   const d=DATA[p.s], keys=Object.keys(d.colors), A=i=>(Number.isInteger(i)&&i>=0&&i<keys.length)?keys[i]:null;
-  const card=d.cards[p.g]; if(!card) return fail();
+  const card=d.cards[p.g]; if(!card) return fail("card");
   const nb=a=>`<i class="nb" style="background:${d.colors[a]}">${keys.indexOf(a)+1}</i>`;
   const choice=A(p.c), before=A(p.b), after=A(p.a);
-  if(choice===null||after===null) return fail();
+  if(choice===null||after===null) return fail("ans");
   const flipped=(Array.isArray(p.f)?p.f:[]).filter(i=>d.cards[i]&&i!==p.g);
   const dots=(list)=>{ const m={}; list.forEach(([a,n])=>m[a]=n); return m; };
   const B=dots(d.base), K=dots(card.balls);
