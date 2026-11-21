@@ -144,9 +144,12 @@ ruby rt{font-size:.5em;font-weight:600;color:#666;letter-spacing:0}
 .genres{display:flex;gap:10px;flex-wrap:wrap}.genre{font-size:20px;padding:12px 20px;background:#fff;color:#555;border:3px solid #eadbd5;box-shadow:0 3px 0 #e5d6d0;line-height:1.9}.genre.on{background:var(--btn);color:#fff;border-color:var(--btn);box-shadow:0 3px 0 var(--btn2)}
 .genre.omakase{background:#FFF6E0;border-color:#E9C46A;color:var(--org2)}
 
+.nb{display:inline-flex;align-items:center;justify-content:center;flex:none;width:26px;height:26px;border-radius:50%;color:#fff;-webkit-text-stroke:2.5px #1a1a1a;paint-order:stroke fill;font-size:15px;font-style:normal;font-weight:700;vertical-align:middle;margin-right:6px;box-shadow:inset -2px -3px 0 rgba(0,0,0,.12)}
+.mjar .ball{width:24px!important;height:24px!important;font-size:14px;-webkit-text-stroke:2.5px #1a1a1a}.mjar.solo .ball{width:32px!important;height:32px!important;font-size:18px}
 /* ---- v16: privacy notice, take-home QR, staff panel ---- */
 .cardhead{margin-top:16px;font-size:18px;font-weight:700;color:#333;line-height:1.9}
 .cardhead small{font-size:14px;font-weight:400;color:#555;margin-left:4px}
+.qrline{flex-basis:100%;font-size:17px;font-weight:700;color:var(--ptxt);line-height:1.9;margin-top:-8px}
 .privacy{flex-basis:100%;font-size:15px;color:#555;line-height:1.9;margin-top:-4px}
 .qrwrap{display:none;margin:16px auto 4px;max-width:420px;background:#fff;border:3px dashed var(--pink);border-radius:18px;padding:14px 12px 10px;text-align:center}
 .qrwrap.on{display:block;animation:fadein .7s ease}
@@ -169,6 +172,13 @@ ruby rt{font-size:.5em;font-weight:600;color:#666;letter-spacing:0}
 .pin .pgrid{display:grid;grid-template-columns:repeat(3,84px);gap:10px;margin-top:8px}
 .pin .pgrid button{height:72px;font-size:30px;background:#f1f1f4;color:#333;touch-action:manipulation}
 .pin .pgrid .pc{font-size:18px;background:#fff;color:#666;border:2px solid #ddd}
+.staff .spc{display:block;font-size:17px;margin:0 0 14px}.staff .spc input{font-size:20px;width:80px;padding:4px 8px;margin-left:8px}
+.staff .sauto{font-size:14px;color:#555;margin:-8px 0 14px 30px}
+.opts{display:grid!important;grid-template-columns:1fr 1fr;gap:8px}.opt{display:flex;align-items:center;gap:10px;min-height:64px;font-size:18px;line-height:1.6;padding:8px 12px}.opt .onum{flex:none;width:32px;height:32px;border-radius:50%;background:#fff;color:var(--btn2);display:inline-flex;align-items:center;justify-content:center;font-size:18px}
+.copen{font-size:18px;font-weight:700;color:#333;margin:0 0 8px;line-height:1.9}
+@media (max-width:600px){.opts{grid-template-columns:1fr}}
+.marks .tg{white-space:nowrap;flex:none}.marks span .mt,.chip .mt{display:inline;text-align:left}.marks>span{max-width:100%}
+.barbox{max-width:440px;margin:10px auto 4px;background:#fff;border:2px solid #f0e2dc;border-radius:16px;padding:10px 12px;text-align:left}.bcap{font-size:18px;font-weight:700;line-height:1.9;color:#333}.bleg{display:flex;gap:14px;font-size:14px;color:#555;margin:2px 0 6px;line-height:1.9}.bleg span{display:inline-flex;align-items:center;gap:4px}.bsw{display:inline-block;width:22px;height:10px;border-radius:3px;background:#777}.bsw.pre{opacity:.35}.brow{display:grid;grid-template-columns:32px 1fr;align-items:center;gap:6px;margin:5px 0}.bpair{display:flex;flex-direction:column;gap:3px}.bar{height:12px;border-radius:3px;min-width:6px;background-image:linear-gradient(90deg,transparent calc(100% - 2px),#fff 0);background-repeat:repeat-x}.bar.pre{opacity:.35}
 .staff .smsg{font-size:14px;color:#555;margin-top:10px;min-height:20px}
 </style></head>
 <body>
@@ -176,7 +186,7 @@ ruby rt{font-size:.5em;font-weight:600;color:#666;letter-spacing:0}
   <h1>もっともらしさメーカー<small>いちばんらしい<ruby>答<rt>こた</rt></ruby>えは、いちばん<ruby>正<rt>ただ</rt></ruby>しい？</small></h1>
   <div class="tabs" id="tabs"></div>
 </header>
-<div class="intro" id="intro"><div class="lead">どの<ruby>話<rt>はなし</rt></ruby>にする？　えらんだら「<ruby>続<rt>つづ</rt></ruby>きを<ruby>考<rt>かんが</rt></ruby>えてもらう」を<ruby>押<rt>お</rt></ruby>そう。</div><div class="genres" id="genres"></div><div class="privacy" id="privacy"><ruby>答<rt>こた</rt></ruby>えは<ruby>集計<rt>しゅうけい</rt></ruby>に<ruby>使<rt>つか</rt></ruby>います（<ruby>名前<rt>なまえ</rt></ruby>は<ruby>残<rt>のこ</rt></ruby>りません）</div></div>
+<div class="intro" id="intro"><div class="lead">どの<ruby>話<rt>はなし</rt></ruby>にする？　えらんだら「<ruby>続<rt>つづ</rt></ruby>きを<ruby>考<rt>かんが</rt></ruby>えてもらう」を<ruby>押<rt>お</rt></ruby>そう。</div><div class="genres" id="genres"></div><div class="privacy" id="privacy"><ruby>答<rt>こた</rt></ruby>えは<ruby>集計<rt>しゅうけい</rt></ruby>に<ruby>使<rt>つか</rt></ruby>います（<ruby>名前<rt>なまえ</rt></ruby>は<ruby>残<rt>のこ</rt></ruby>りません）</div><div class="qrline" id="qrline">さいごに、あなたの<ruby>文<rt>ぶん</rt></ruby>をスマホに<ruby>保存<rt>ほぞん</rt></ruby>できるQRコードが<ruby>出<rt>で</rt></ruby>るよ</div></div>
 <div class="wrap">
   <section class="panel">
     <div class="label">書き出し（マシンにわたした文）</div>
@@ -187,7 +197,7 @@ ruby rt{font-size:.5em;font-weight:600;color:#666;letter-spacing:0}
     <div class="deckrow"><div class="deck" id="deck"></div><button class="flip" id="flip">カードを1枚めくる</button></div>
     <div class="hint">めくったカードを読んでみよう。</div>
     <div class="cards" id="cards"></div>
-    <div class="choose hid" id="choose"><div class="ccap">この人の事情を知っているのは、いまはあなただけ。</div><div class="ctitle">あなたなら、どの続きにする？</div><div class="opts" id="opts"></div></div>
+    <div class="choose hid" id="choose"><div class="ccap">この人の事情を知っているのは、いまはあなただけ。</div><div class="ctitle">あなたなら、どの続きにする？</div><div class="copen" id="copen"></div><div class="opts" id="opts"></div></div>
     <div class="mychoice hid" id="mychoice"></div>
   </section>
   <section class="panel machine">
@@ -207,7 +217,7 @@ ruby rt{font-size:.5em;font-weight:600;color:#666;letter-spacing:0}
     <div class="reveal" id="reveal">
       <div class="jars" id="jars"></div>
       <div class="marks" id="marks"></div><div class="legend" id="legend"></div>
-      <ul class="explain"><li>考えていたのではなく、玉を引いていただけ。</li><li>同じことを聞いても、毎回同じ答えとはかぎらない。</li><li>合っているかは、自分でたしかめよう。</li><li>教えると箱の中身が入れかわる。前に教えたことは残らない。</li></ul><div class="msg" id="msg" style="display:none"></div>
+      <ul class="explain"><li>考えていたのではなく、玉を引いていただけ。</li><li>同じことを聞いても、毎回同じ答えとはかぎらない。</li><li>合っているかは、自分でたしかめよう。</li></ul><div class="barbox"><div class="bcap"><ruby>教<rt>おし</rt></ruby>えると、<ruby>玉<rt>たま</rt></ruby>の<ruby>数<rt>かず</rt></ruby>が<ruby>変<rt>か</rt></ruby>わる。<ruby>答<rt>こた</rt></ruby>えの<ruby>種類<rt>しゅるい</rt></ruby>は<ruby>同<rt>おな</rt></ruby>じ。</div><div class="bleg"><span><i class="bsw pre"></i>うすい＝<ruby>教<rt>おし</rt></ruby>える<ruby>前<rt>まえ</rt></ruby></span><span><i class="bsw"></i>こい＝<ruby>教<rt>おし</rt></ruby>えたあと</span></div><div class="bars" id="bars"></div></div><ul class="explain"><li>ほんものは、これを1<ruby>語<rt>ご</rt></ruby>ずつ、<ruby>何回<rt>なんかい</rt></ruby>もくり<ruby>返<rt>かえ</rt></ruby>して<ruby>文<rt>ぶん</rt></ruby>を<ruby>作<rt>つく</rt></ruby>っている。</li></ul><div class="msg" id="msg" style="display:none"></div>
       <div class="final" id="final"><ruby>文章<rt>ぶんしょう</rt></ruby>を<ruby>書<rt>か</rt></ruby>くAIも、たくさんの<ruby>文<rt>ぶん</rt></ruby>から、ありそうな<ruby>続<rt>つづ</rt></ruby>きを<ruby>確率<rt>かくりつ</rt></ruby>で<ruby>選<rt>えら</rt></ruby>んでいる。いちばんらしい<ruby>答<rt>こた</rt></ruby>えは、いちばん<ruby>正<rt>ただ</rt></ruby>しい？</div>
       <button class="again" id="again" style="display:none">もう一度見る</button>
       <div class="qrwrap" id="qrwrap"><div class="qrimg" id="qrimg"></div><div class="qcap">スマホで<ruby>開<rt>ひら</rt></ruby>くと、<ruby>結果<rt>けっか</rt></ruby>をほぞんできます</div></div>
@@ -231,6 +241,9 @@ ruby rt{font-size:.5em;font-weight:600;color:#666;letter-spacing:0}
 <div class="staff" id="staff" role="dialog" aria-label="staff"><div class="sbox">
   <h2>スタッフ用</h2>
   <div class="scount" id="scount"></div>
+  <label class="spc"><input id="sauto" type="checkbox" style="width:22px;height:22px;vertical-align:-4px"> 30分ごとに自動でCSVを保存（PCのみ）</label>
+  <div class="sauto" id="sautoinfo"></div>
+  <label class="spc">PC番号 <input id="spcno" type="number" min="1" max="99" value="1" inputmode="numeric"></label>
   <div class="sbtns"><button class="sexp" id="sexp">CSV書き出し</button><button class="sdel" id="sdel">記録を消す</button><button id="sclose">閉じる</button></div>
   <div class="smsg" id="smsg"></div>
 </div></div>
@@ -2540,8 +2553,8 @@ var qrcode = function() {
 
 </script>
 <script>
-const DATA = {"A": {"title": "{明日|あした}は{雨|あめ}だから、", "who": "ハルト（{中学生|ちゅうがくせい}）", "colors": {"{部活|ぶかつ}は{休|やす}みだ": "#E07A8B", "{傘|かさ}を{持|も}っていこう": "#5B8FD9", "{家|いえ}でゆっくりしよう": "#5FB37A", "{体育館|たいいくかん}で{部活|ぶかつ}だ": "#E9A23B", "{家|いえ}で{筋|きん}トレだ": "#9B74C9", "カッパを{着|き}て、{自転車|じてんしゃ}で{行|い}こう": "#3FB2B0", "カッパを{着|き}ていこう": "#B8925A"}, "base": [["{部活|ぶかつ}は{休|やす}みだ", 10], ["{傘|かさ}を{持|も}っていこう", 4], ["{家|いえ}でゆっくりしよう", 3], ["{体育館|たいいくかん}で{部活|ぶかつ}だ", 2], ["{家|いえ}で{筋|きん}トレだ", 1]], "cards": [{"text": "バスケ{部|ぶ}は、{雨|あめ}でも{体育館|たいいくかん}で{練習|れんしゅう}がある。", "balls": [["{体育館|たいいくかん}で{部活|ぶかつ}だ", 12], ["{傘|かさ}を{持|も}っていこう", 4], ["{部活|ぶかつ}は{休|やす}みだ", 2], ["{家|いえ}で{筋|きん}トレだ", 2]]}, {"text": "ハルトは、{自転車|じてんしゃ}で{学校|がっこう}に{通|かよ}っている。", "balls": [["カッパを{着|き}て、{自転車|じてんしゃ}で{行|い}こう", 11], ["{体育館|たいいくかん}で{部活|ぶかつ}だ", 4], ["{部活|ぶかつ}は{休|やす}みだ", 3], ["{傘|かさ}を{持|も}っていこう", 2]]}, {"text": "{来週|らいしゅう}、バスケの{大会|たいかい}がある。", "balls": [["{体育館|たいいくかん}で{部活|ぶかつ}だ", 10], ["{家|いえ}で{筋|きん}トレだ", 5], ["{傘|かさ}を{持|も}っていこう", 3], ["{部活|ぶかつ}は{休|やす}みだ", 2]]}, {"text": "ハルトは、ぬれるのが{大|だい}きらい。", "balls": [["{傘|かさ}を{持|も}っていこう", 10], ["カッパを{着|き}ていこう", 5], ["{家|いえ}でゆっくりしよう", 3], ["{部活|ぶかつ}は{休|やす}みだ", 2]]}, {"text": "{先生|せんせい}から「{明日|あした}も{練習|れんしゅう}あるよ」と{連絡|れんらく}が{来|き}た。", "balls": [["{体育館|たいいくかん}で{部活|ぶかつ}だ", 14], ["{傘|かさ}を{持|も}っていこう", 3], ["{部活|ぶかつ}は{休|やす}みだ", 2], ["{家|いえ}で{筋|きん}トレだ", 1]]}]}, "B": {"title": "{冷蔵庫|れいぞうこ}にたまごがあるから、", "who": "リク（{小学生|しょうがくせい}）", "colors": {"{目玉焼|めだまや}きを{作|つく}ろう": "#E07A8B", "たまごかけごはんにしよう": "#5B8FD9", "オムライスを{作|つく}ろう": "#5FB37A", "ゆでたまごにしよう": "#E9A23B", "パンを{食|た}べよう": "#9B74C9", "おにぎりを{作|つく}ろう": "#3FB2B0", "オムライスを{作|つく}ってあげよう": "#B8925A", "ケーキを{焼|や}こう": "#8E8E96", "{明日|あした}の{朝|あさ}に{食|た}べよう": "#D9534F"}, "base": [["{目玉焼|めだまや}きを{作|つく}ろう", 10], ["たまごかけごはんにしよう", 4], ["オムライスを{作|つく}ろう", 3], ["ゆでたまごにしよう", 3]], "cards": [{"text": "リクは、たまごアレルギーだ。", "balls": [["パンを{食|た}べよう", 11], ["おにぎりを{作|つく}ろう", 5], ["{目玉焼|めだまや}きを{作|つく}ろう", 2], ["オムライスを{作|つく}ろう", 2]]}, {"text": "{今日|きょう}は、お{母|かあ}さんの{誕生日|たんじょうび}。", "balls": [["オムライスを{作|つく}ってあげよう", 11], ["ケーキを{焼|や}こう", 5], ["{目玉焼|めだまや}きを{作|つく}ろう", 2], ["たまごかけごはんにしよう", 2]]}, {"text": "フライパンが、こわれている。", "balls": [["ゆでたまごにしよう", 11], ["たまごかけごはんにしよう", 5], ["{目玉焼|めだまや}きを{作|つく}ろう", 2], ["オムライスを{作|つく}ろう", 2]]}, {"text": "{夜|よる}の9{時|じ}で、もうおなかいっぱい。", "balls": [["{明日|あした}の{朝|あさ}に{食|た}べよう", 12], ["ゆでたまごにしよう", 4], ["{目玉焼|めだまや}きを{作|つく}ろう", 2], ["オムライスを{作|つく}ろう", 2]]}, {"text": "ごはんが、ちょうど{炊|た}けたところ。", "balls": [["たまごかけごはんにしよう", 12], ["オムライスを{作|つく}ろう", 4], ["{目玉焼|めだまや}きを{作|つく}ろう", 2], ["ゆでたまごにしよう", 2]]}]}, "C": {"title": "{犬|いぬ}がずっとほえているから、", "who": "ユイ（{小学生|しょうがくせい}・{犬|いぬ}をかっている）", "colors": {"{散歩|さんぽ}に{行|い}こう": "#E07A8B", "おやつをあげよう": "#5B8FD9", "{静|しず}かにさせよう": "#5FB37A", "{様子|ようす}を{見|み}に{行|い}こう": "#E9A23B", "{水|みず}をあげよう": "#9B74C9", "{玄関|げんかん}に{出|で}よう": "#3FB2B0", "そばにいてあげよう": "#B8925A", "ごはんをあげよう": "#8E8E96", "おもちゃを{取|と}ってあげよう": "#D9534F"}, "base": [["{散歩|さんぽ}に{行|い}こう", 10], ["おやつをあげよう", 4], ["{静|しず}かにさせよう", 3], ["{様子|ようす}を{見|み}に{行|い}こう", 3]], "cards": [{"text": "さっき、{散歩|さんぽ}から{帰|かえ}ってきたばかり。", "balls": [["{水|みず}をあげよう", 11], ["{様子|ようす}を{見|み}に{行|い}こう", 5], ["おやつをあげよう", 2], ["{散歩|さんぽ}に{行|い}こう", 2]]}, {"text": "{玄関|げんかん}に、{宅配便|たくはいびん}の{人|ひと}が{来|き}ている。", "balls": [["{玄関|げんかん}に{出|で}よう", 12], ["{様子|ようす}を{見|み}に{行|い}こう", 4], ["{散歩|さんぽ}に{行|い}こう", 2], ["おやつをあげよう", 2]]}, {"text": "{外|そと}で、かみなりが{鳴|な}っている。", "balls": [["そばにいてあげよう", 12], ["{様子|ようす}を{見|み}に{行|い}こう", 4], ["おやつをあげよう", 2], ["{散歩|さんぽ}に{行|い}こう", 2]]}, {"text": "ごはんの{時間|じかん}を、1{時間|じかん}すぎている。", "balls": [["ごはんをあげよう", 12], ["おやつをあげよう", 4], ["{散歩|さんぽ}に{行|い}こう", 2], ["{様子|ようす}を{見|み}に{行|い}こう", 2]]}, {"text": "おもちゃが、ソファの{下|した}に{入|はい}ってしまった。", "balls": [["おもちゃを{取|と}ってあげよう", 12], ["{様子|ようす}を{見|み}に{行|い}こう", 4], ["{散歩|さんぽ}に{行|い}こう", 2], ["おやつをあげよう", 2]]}]}, "D": {"title": "{日曜日|にちようび}は{晴|は}れだから、", "who": "カイ（{小学生|しょうがくせい}）", "colors": {"{公園|こうえん}で{遊|あそ}ぼう": "#E07A8B", "{友達|ともだち}と{出|で}かけよう": "#5B8FD9", "{自転車|じてんしゃ}に{乗|の}ろう": "#5FB37A", "{家|いえ}でゲームしよう": "#E9A23B", "{家|いえ}で{本|ほん}を{読|よ}もう": "#9B74C9", "おばあちゃんの{家|いえ}に{行|い}こう": "#3FB2B0", "{午前|ごぜん}に{勉強|べんきょう}して、{午後|ごご}に{遊|あそ}ぼう": "#B8925A", "ひとりで{公園|こうえん}に{行|い}こう": "#8E8E96"}, "base": [["{公園|こうえん}で{遊|あそ}ぼう", 10], ["{友達|ともだち}と{出|で}かけよう", 4], ["{自転車|じてんしゃ}に{乗|の}ろう", 3], ["{家|いえ}でゲームしよう", 3]], "cards": [{"text": "カイは、{足|あし}をけがしている。", "balls": [["{家|いえ}でゲームしよう", 11], ["{家|いえ}で{本|ほん}を{読|よ}もう", 5], ["{公園|こうえん}で{遊|あそ}ぼう", 2], ["{自転車|じてんしゃ}に{乗|の}ろう", 2]]}, {"text": "おばあちゃんの{家|いえ}に{行|い}く{約束|やくそく}がある。", "balls": [["おばあちゃんの{家|いえ}に{行|い}こう", 12], ["{公園|こうえん}で{遊|あそ}ぼう", 4], ["{友達|ともだち}と{出|で}かけよう", 2], ["{自転車|じてんしゃ}に{乗|の}ろう", 2]]}, {"text": "{月曜日|げつようび}に、{算数|さんすう}のテストがある。", "balls": [["{午前|ごぜん}に{勉強|べんきょう}して、{午後|ごご}に{遊|あそ}ぼう", 11], ["{公園|こうえん}で{遊|あそ}ぼう", 5], ["{家|いえ}でゲームしよう", 2], ["{友達|ともだち}と{出|で}かけよう", 2]]}, {"text": "{新|あたら}しい{自転車|じてんしゃ}を{買|か}ってもらったばかり。", "balls": [["{自転車|じてんしゃ}に{乗|の}ろう", 13], ["{公園|こうえん}で{遊|あそ}ぼう", 3], ["{友達|ともだち}と{出|で}かけよう", 2], ["{家|いえ}でゲームしよう", 2]]}, {"text": "{友達|ともだち}はみんな、{家族|かぞく}で{旅行|りょこう}に{行|い}っている。", "balls": [["ひとりで{公園|こうえん}に{行|い}こう", 10], ["{家|いえ}でゲームしよう", 5], ["{自転車|じてんしゃ}に{乗|の}ろう", 3], ["{友達|ともだち}と{出|で}かけよう", 2]]}]}, "E": {"title": "{明日|あした}は{友達|ともだち}の{誕生日|たんじょうび}だから、", "who": "アオイ（{小学生|しょうがくせい}）", "colors": {"プレゼントを{買|か}いに{行|い}こう": "#E07A8B", "{手紙|てがみ}を{書|か}こう": "#5B8FD9", "おめでとうと{言|い}おう": "#5FB37A", "ケーキを{作|つく}ろう": "#E9A23B", "{手作|てづく}りのプレゼントを{作|つく}ろう": "#9B74C9", "{手紙|てがみ}を{送|おく}ろう": "#3FB2B0", "{電話|でんわ}でおめでとうと{言|い}おう": "#B8925A", "みんなと{準備|じゅんび}をしよう": "#8E8E96", "{色|いろ}えんぴつをプレゼントしよう": "#D9534F"}, "base": [["プレゼントを{買|か}いに{行|い}こう", 10], ["{手紙|てがみ}を{書|か}こう", 4], ["おめでとうと{言|い}おう", 3], ["ケーキを{作|つく}ろう", 3]], "cards": [{"text": "おこづかいが、もう100{円|えん}しかない。", "balls": [["{手紙|てがみ}を{書|か}こう", 11], ["{手作|てづく}りのプレゼントを{作|つく}ろう", 5], ["プレゼントを{買|か}いに{行|い}こう", 2], ["おめでとうと{言|い}おう", 2]]}, {"text": "{友達|ともだち}は、{遠|とお}くに{引|ひ}っこしてしまった。", "balls": [["{手紙|てがみ}を{送|おく}ろう", 11], ["{電話|でんわ}でおめでとうと{言|い}おう", 5], ["プレゼントを{買|か}いに{行|い}こう", 2], ["ケーキを{作|つく}ろう", 2]]}, {"text": "{友達|ともだち}は、あまいものが{苦手|にがて}。", "balls": [["プレゼントを{買|か}いに{行|い}こう", 11], ["{手紙|てがみ}を{書|か}こう", 5], ["おめでとうと{言|い}おう", 2], ["ケーキを{作|つく}ろう", 2]]}, {"text": "クラスのみんなで、サプライズを{計画|けいかく}している。", "balls": [["みんなと{準備|じゅんび}をしよう", 12], ["{手紙|てがみ}を{書|か}こう", 4], ["プレゼントを{買|か}いに{行|い}こう", 2], ["おめでとうと{言|い}おう", 2]]}, {"text": "{友達|ともだち}は、{絵|え}をかくのが{大好|だいす}き。", "balls": [["{色|いろ}えんぴつをプレゼントしよう", 12], ["{手紙|てがみ}を{書|か}こう", 4], ["プレゼントを{買|か}いに{行|い}こう", 2], ["ケーキを{作|つく}ろう", 2]]}]}};
-const GENRE={A:"{雨|あめ}の{日|ひ}",B:"たまご{料理|りょうり}",C:"{犬|いぬ}",D:"{休|やす}みの{日|ひ}",E:"{誕生日|たんじょうび}"};
+const DATA = {"A":{"title":"{明日|あした}は{雨|あめ}。ハルトは、","who":"ハルト（{小学生|しょうがくせい}）","colors":{"がっかりしている":"#E69F00","サッカーの{練習|れんしゅう}は{休|やす}みだと{思|おも}っている":"#56B4E9","{家|いえ}でゆっくりするつもりだ":"#009E73","かさを{用意|ようい}している":"#F0C400","{大|おお}よろこびしている":"#0072B2","{早|はや}く{外|そと}に{出|で}たくて、うずうずしている":"#D55E00","{虫|むし}かごを{用意|ようい}している":"#CC79A7","{早|はや}く{夜|よる}にならないかなと{思|おも}っている":"#8C8C8C","かたつむりを{外|そと}に{出|だ}してあげている":"#A6761D"},"base":[["がっかりしている",8],["サッカーの{練習|れんしゅう}は{休|やす}みだと{思|おも}っている",7],["{家|いえ}でゆっくりするつもりだ",6],["かさを{用意|ようい}している",4],["{大|おお}よろこびしている",1],["{早|はや}く{外|そと}に{出|で}たくて、うずうずしている",1],["{虫|むし}かごを{用意|ようい}している",1],["{早|はや}く{夜|よる}にならないかなと{思|おも}っている",1],["かたつむりを{外|そと}に{出|だ}してあげている",1]],"cards":[{"text":"{家|いえ}は{農家|のうか}で、もう1か{月|げつ}も{雨|あめ}がふっていない","balls":[["{大|おお}よろこびしている",12],["かさを{用意|ようい}している",6],["{家|いえ}でゆっくりするつもりだ",4],["サッカーの{練習|れんしゅう}は{休|やす}みだと{思|おも}っている",3],["がっかりしている",1],["{早|はや}く{外|そと}に{出|で}たくて、うずうずしている",1],["{虫|むし}かごを{用意|ようい}している",1],["{早|はや}く{夜|よる}にならないかなと{思|おも}っている",1],["かたつむりを{外|そと}に{出|だ}してあげている",1]]},{"text":"{新|あたら}しい{長|なが}ぐつを{買|か}ってもらったばかり","balls":[["{早|はや}く{外|そと}に{出|で}たくて、うずうずしている",12],["かさを{用意|ようい}している",6],["サッカーの{練習|れんしゅう}は{休|やす}みだと{思|おも}っている",4],["{家|いえ}でゆっくりするつもりだ",3],["がっかりしている",1],["{大|おお}よろこびしている",1],["{虫|むし}かごを{用意|ようい}している",1],["{早|はや}く{夜|よる}にならないかなと{思|おも}っている",1],["かたつむりを{外|そと}に{出|だ}してあげている",1]]},{"text":"カエルを{観察|かんさつ}するのが{大好|だいす}き","balls":[["{虫|むし}かごを{用意|ようい}している",12],["かさを{用意|ようい}している",6],["サッカーの{練習|れんしゅう}は{休|やす}みだと{思|おも}っている",4],["{家|いえ}でゆっくりするつもりだ",3],["がっかりしている",1],["{大|おお}よろこびしている",1],["{早|はや}く{外|そと}に{出|で}たくて、うずうずしている",1],["{早|はや}く{夜|よる}にならないかなと{思|おも}っている",1],["かたつむりを{外|そと}に{出|だ}してあげている",1]]},{"text":"{雨|あめ}の{音|おと}を{聞|き}きながらねるのが{好|す}き","balls":[["{早|はや}く{夜|よる}にならないかなと{思|おも}っている",12],["{家|いえ}でゆっくりするつもりだ",6],["かさを{用意|ようい}している",4],["サッカーの{練習|れんしゅう}は{休|やす}みだと{思|おも}っている",3],["がっかりしている",1],["{大|おお}よろこびしている",1],["{早|はや}く{外|そと}に{出|で}たくて、うずうずしている",1],["{虫|むし}かごを{用意|ようい}している",1],["かたつむりを{外|そと}に{出|だ}してあげている",1]]},{"text":"かたつむりをかっている","balls":[["かたつむりを{外|そと}に{出|だ}してあげている",12],["かさを{用意|ようい}している",6],["{家|いえ}でゆっくりするつもりだ",4],["サッカーの{練習|れんしゅう}は{休|やす}みだと{思|おも}っている",3],["がっかりしている",1],["{大|おお}よろこびしている",1],["{早|はや}く{外|そと}に{出|で}たくて、うずうずしている",1],["{虫|むし}かごを{用意|ようい}している",1],["{早|はや}く{夜|よる}にならないかなと{思|おも}っている",1]]}]},"B":{"title":"{冷蔵庫|れいぞうこ}にたまごがある。リクは、","who":"リク（{小学生|しょうがくせい}）","colors":{"{目玉焼|めだまや}きを{作|つく}ることにした":"#E69F00","たまごかけごはんにした":"#56B4E9","オムライスを{作|つく}ることにした":"#009E73","ゆでたまごにした":"#F0C400","たまごをすてることにした":"#0072B2","たまごを2{階|かい}から{落|お}とすことにした":"#D55E00","{絵|え}の{具|ぐ}を{用意|ようい}した":"#CC79A7","ヘビにあげることにした":"#8C8C8C","{中身|なかみ}だけ、お{母|かあ}さんにあげた":"#A6761D"},"base":[["{目玉焼|めだまや}きを{作|つく}ることにした",8],["たまごかけごはんにした",7],["オムライスを{作|つく}ることにした",6],["ゆでたまごにした",4],["たまごをすてることにした",1],["たまごを2{階|かい}から{落|お}とすことにした",1],["{絵|え}の{具|ぐ}を{用意|ようい}した",1],["ヘビにあげることにした",1],["{中身|なかみ}だけ、お{母|かあ}さんにあげた",1]],"cards":[{"text":"そのたまごは、{期限|きげん}が1か{月|げつ}{前|まえ}に{切|き}れていた","balls":[["たまごをすてることにした",12],["ゆでたまごにした",6],["{目玉焼|めだまや}きを{作|つく}ることにした",4],["オムライスを{作|つく}ることにした",3],["たまごかけごはんにした",1],["たまごを2{階|かい}から{落|お}とすことにした",1],["{絵|え}の{具|ぐ}を{用意|ようい}した",1],["ヘビにあげることにした",1],["{中身|なかみ}だけ、お{母|かあ}さんにあげた",1]]},{"text":"{理科|りか}の{宿題|しゅくだい}が「{落|お}としても{割|わ}れないたまごの{入|い}れ{物|もの}」","balls":[["たまごを2{階|かい}から{落|お}とすことにした",12],["ゆでたまごにした",6],["{目玉焼|めだまや}きを{作|つく}ることにした",4],["オムライスを{作|つく}ることにした",3],["たまごかけごはんにした",1],["たまごをすてることにした",1],["{絵|え}の{具|ぐ}を{用意|ようい}した",1],["ヘビにあげることにした",1],["{中身|なかみ}だけ、お{母|かあ}さんにあげた",1]]},{"text":"{明日|あした}は、たまごに{絵|え}をかくお{祭|まつ}り","balls":[["{絵|え}の{具|ぐ}を{用意|ようい}した",12],["ゆでたまごにした",6],["{目玉焼|めだまや}きを{作|つく}ることにした",4],["オムライスを{作|つく}ることにした",3],["たまごかけごはんにした",1],["たまごをすてることにした",1],["たまごを2{階|かい}から{落|お}とすことにした",1],["ヘビにあげることにした",1],["{中身|なかみ}だけ、お{母|かあ}さんにあげた",1]]},{"text":"ペットのヘビのごはんがたまご","balls":[["ヘビにあげることにした",12],["ゆでたまごにした",6],["{目玉焼|めだまや}きを{作|つく}ることにした",4],["たまごかけごはんにした",3],["オムライスを{作|つく}ることにした",1],["たまごをすてることにした",1],["たまごを2{階|かい}から{落|お}とすことにした",1],["{絵|え}の{具|ぐ}を{用意|ようい}した",1],["{中身|なかみ}だけ、お{母|かあ}さんにあげた",1]]},{"text":"たまごのからで{工作|こうさく}をしたい","balls":[["{中身|なかみ}だけ、お{母|かあ}さんにあげた",12],["オムライスを{作|つく}ることにした",6],["たまごかけごはんにした",4],["{目玉焼|めだまや}きを{作|つく}ることにした",3],["ゆでたまごにした",1],["たまごをすてることにした",1],["たまごを2{階|かい}から{落|お}とすことにした",1],["{絵|え}の{具|ぐ}を{用意|ようい}した",1],["ヘビにあげることにした",1]]}]},"C":{"title":"{犬|いぬ}がずっとほえている。ユイは、","who":"ユイ（{小学生|しょうがくせい}）","colors":{"うるさいなと{思|おも}っている":"#E69F00","{静|しず}かにさせようとしている":"#56B4E9","{様子|ようす}を{見|み}に{行|い}った":"#009E73","{散歩|さんぽ}に{連|つ}れていくことにした":"#F0C400","はじめて{声|こえ}が{聞|き}けて、よろこんでいる":"#0072B2","ほっとして、なみだが{出|で}ている":"#D55E00","{急|いそ}いで{録音|ろくおん}している":"#CC79A7","{犬|いぬ}をたくさんほめている":"#8C8C8C","「その{調子|ちょうし}！」と{応援|おうえん}している":"#A6761D"},"base":[["うるさいなと{思|おも}っている",8],["{静|しず}かにさせようとしている",7],["{様子|ようす}を{見|み}に{行|い}った",6],["{散歩|さんぽ}に{連|つ}れていくことにした",4],["はじめて{声|こえ}が{聞|き}けて、よろこんでいる",1],["ほっとして、なみだが{出|で}ている",1],["{急|いそ}いで{録音|ろくおん}している",1],["{犬|いぬ}をたくさんほめている",1],["「その{調子|ちょうし}！」と{応援|おうえん}している",1]],"cards":[{"text":"その{犬|いぬ}は、ふだん{一度|いちど}もほえない","balls":[["はじめて{声|こえ}が{聞|き}けて、よろこんでいる",12],["{様子|ようす}を{見|み}に{行|い}った",6],["{散歩|さんぽ}に{連|つ}れていくことにした",4],["{静|しず}かにさせようとしている",3],["うるさいなと{思|おも}っている",1],["ほっとして、なみだが{出|で}ている",1],["{急|いそ}いで{録音|ろくおん}している",1],["{犬|いぬ}をたくさんほめている",1],["「その{調子|ちょうし}！」と{応援|おうえん}している",1]]},{"text":"まいごになった{犬|いぬ}を{3日|みっか}さがしていた","balls":[["ほっとして、なみだが{出|で}ている",12],["{様子|ようす}を{見|み}に{行|い}った",6],["{散歩|さんぽ}に{連|つ}れていくことにした",4],["{静|しず}かにさせようとしている",3],["うるさいなと{思|おも}っている",1],["はじめて{声|こえ}が{聞|き}けて、よろこんでいる",1],["{急|いそ}いで{録音|ろくおん}している",1],["{犬|いぬ}をたくさんほめている",1],["「その{調子|ちょうし}！」と{応援|おうえん}している",1]]},{"text":"{犬|いぬ}の{声|こえ}の{動画|どうが}を{作|つく}っている","balls":[["{急|いそ}いで{録音|ろくおん}している",12],["{様子|ようす}を{見|み}に{行|い}った",6],["{散歩|さんぽ}に{連|つ}れていくことにした",4],["うるさいなと{思|おも}っている",3],["{静|しず}かにさせようとしている",1],["はじめて{声|こえ}が{聞|き}けて、よろこんでいる",1],["ほっとして、なみだが{出|で}ている",1],["{犬|いぬ}をたくさんほめている",1],["「その{調子|ちょうし}！」と{応援|おうえん}している",1]]},{"text":"{犬|いぬ}がどろぼうを{追|お}いはらってくれた","balls":[["{犬|いぬ}をたくさんほめている",12],["{様子|ようす}を{見|み}に{行|い}った",6],["{散歩|さんぽ}に{連|つ}れていくことにした",4],["{静|しず}かにさせようとしている",3],["うるさいなと{思|おも}っている",1],["はじめて{声|こえ}が{聞|き}けて、よろこんでいる",1],["ほっとして、なみだが{出|で}ている",1],["{急|いそ}いで{録音|ろくおん}している",1],["「その{調子|ちょうし}！」と{応援|おうえん}している",1]]},{"text":"{明日|あした}は{犬|いぬ}のなきごえコンテスト","balls":[["「その{調子|ちょうし}！」と{応援|おうえん}している",12],["{様子|ようす}を{見|み}に{行|い}った",6],["{散歩|さんぽ}に{連|つ}れていくことにした",4],["うるさいなと{思|おも}っている",3],["{静|しず}かにさせようとしている",1],["はじめて{声|こえ}が{聞|き}けて、よろこんでいる",1],["ほっとして、なみだが{出|で}ている",1],["{急|いそ}いで{録音|ろくおん}している",1],["{犬|いぬ}をたくさんほめている",1]]}]},"D":{"title":"{日曜日|にちようび}は{晴|は}れ。カイは、","who":"カイ（{小学生|しょうがくせい}）","colors":{"{公園|こうえん}で{遊|あそ}ぶつもりだ":"#E69F00","{友達|ともだち}と{出|で}かけることにした":"#56B4E9","{自転車|じてんしゃ}に{乗|の}るつもりだ":"#009E73","よろこんでいる":"#F0C400","がっかりしている":"#0072B2","「{雨|あめ}になれ！」とおいのりしている":"#D55E00","{昼|ひる}ねをしている":"#CC79A7","{一日中|いちにちじゅう}カーテンをしめている":"#8C8C8C","とけないか{心配|しんぱい}している":"#A6761D"},"base":[["{公園|こうえん}で{遊|あそ}ぶつもりだ",8],["{友達|ともだち}と{出|で}かけることにした",7],["{自転車|じてんしゃ}に{乗|の}るつもりだ",6],["よろこんでいる",4],["がっかりしている",1],["「{雨|あめ}になれ！」とおいのりしている",1],["{昼|ひる}ねをしている",1],["{一日中|いちにちじゅう}カーテンをしめている",1],["とけないか{心配|しんぱい}している",1]],"cards":[{"text":"{晴|は}れたら、{家族|かぞく}で{大|おお}そうじをする{約束|やくそく}","balls":[["がっかりしている",12],["{公園|こうえん}で{遊|あそ}ぶつもりだ",6],["{友達|ともだち}と{出|で}かけることにした",4],["{自転車|じてんしゃ}に{乗|の}るつもりだ",3],["よろこんでいる",1],["「{雨|あめ}になれ！」とおいのりしている",1],["{昼|ひる}ねをしている",1],["{一日中|いちにちじゅう}カーテンをしめている",1],["とけないか{心配|しんぱい}している",1]]},{"text":"{雨|あめ}なら{中止|ちゅうし}のマラソン{大会|たいかい}があり、{走|はし}るのが{苦手|にがて}","balls":[["「{雨|あめ}になれ！」とおいのりしている",12],["{友達|ともだち}と{出|で}かけることにした",6],["{公園|こうえん}で{遊|あそ}ぶつもりだ",4],["{自転車|じてんしゃ}に{乗|の}るつもりだ",3],["よろこんでいる",1],["がっかりしている",1],["{昼|ひる}ねをしている",1],["{一日中|いちにちじゅう}カーテンをしめている",1],["とけないか{心配|しんぱい}している",1]]},{"text":"{星|ほし}の{観察|かんさつ}クラブに{入|はい}っていて、{夜|よる}に{出|で}かける","balls":[["{昼|ひる}ねをしている",12],["よろこんでいる",6],["{公園|こうえん}で{遊|あそ}ぶつもりだ",4],["{自転車|じてんしゃ}に{乗|の}るつもりだ",3],["{友達|ともだち}と{出|で}かけることにした",1],["がっかりしている",1],["「{雨|あめ}になれ！」とおいのりしている",1],["{一日中|いちにちじゅう}カーテンをしめている",1],["とけないか{心配|しんぱい}している",1]]},{"text":"{日|ひ}にあたると、すぐ{真|ま}っ{赤|か}になる","balls":[["{一日中|いちにちじゅう}カーテンをしめている",12],["{友達|ともだち}と{出|で}かけることにした",6],["{自転車|じてんしゃ}に{乗|の}るつもりだ",4],["{公園|こうえん}で{遊|あそ}ぶつもりだ",3],["よろこんでいる",1],["がっかりしている",1],["「{雨|あめ}になれ！」とおいのりしている",1],["{昼|ひる}ねをしている",1],["とけないか{心配|しんぱい}している",1]]},{"text":"きのう、{大|おお}きな{雪|ゆき}だるまを{作|つく}った","balls":[["とけないか{心配|しんぱい}している",12],["{友達|ともだち}と{出|で}かけることにした",6],["{公園|こうえん}で{遊|あそ}ぶつもりだ",4],["{自転車|じてんしゃ}に{乗|の}るつもりだ",3],["よろこんでいる",1],["がっかりしている",1],["「{雨|あめ}になれ！」とおいのりしている",1],["{昼|ひる}ねをしている",1],["{一日中|いちにちじゅう}カーテンをしめている",1]]}]},"E":{"title":"{明日|あした}は{友達|ともだち}の{誕生日|たんじょうび}。アオイは、","who":"アオイ（{小学生|しょうがくせい}）","colors":{"プレゼントを{買|か}いに{行|い}く":"#E69F00","{手紙|てがみ}を{書|か}いている":"#56B4E9","おめでとうと{言|い}うつもりだ":"#009E73","ケーキを{作|つく}る":"#F0C400","{今日|きょう}はわざと{知|し}らんぷりしている":"#0072B2","ほねのおもちゃを{買|か}いに{行|い}った":"#D55E00","プレゼントのかくし{場所|ばしょ}の{地図|ちず}を{作|つく}っている":"#CC79A7","ダンボールを{集|あつ}めている":"#8C8C8C","おばけのかっこうを{練習|れんしゅう}している":"#A6761D"},"base":[["プレゼントを{買|か}いに{行|い}く",8],["{手紙|てがみ}を{書|か}いている",7],["おめでとうと{言|い}うつもりだ",6],["ケーキを{作|つく}る",4],["{今日|きょう}はわざと{知|し}らんぷりしている",1],["ほねのおもちゃを{買|か}いに{行|い}った",1],["プレゼントのかくし{場所|ばしょ}の{地図|ちず}を{作|つく}っている",1],["ダンボールを{集|あつ}めている",1],["おばけのかっこうを{練習|れんしゅう}している",1]],"cards":[{"text":"サプライズが{大好|だいす}き","balls":[["{今日|きょう}はわざと{知|し}らんぷりしている",12],["ケーキを{作|つく}る",6],["プレゼントを{買|か}いに{行|い}く",4],["{手紙|てがみ}を{書|か}いている",3],["おめでとうと{言|い}うつもりだ",1],["ほねのおもちゃを{買|か}いに{行|い}った",1],["プレゼントのかくし{場所|ばしょ}の{地図|ちず}を{作|つく}っている",1],["ダンボールを{集|あつ}めている",1],["おばけのかっこうを{練習|れんしゅう}している",1]]},{"text":"その「{友達|ともだち}」は、となりの{家|いえ}の{犬|いぬ}","balls":[["ほねのおもちゃを{買|か}いに{行|い}った",12],["プレゼントを{買|か}いに{行|い}く",6],["おめでとうと{言|い}うつもりだ",4],["ケーキを{作|つく}る",3],["{手紙|てがみ}を{書|か}いている",1],["{今日|きょう}はわざと{知|し}らんぷりしている",1],["プレゼントのかくし{場所|ばしょ}の{地図|ちず}を{作|つく}っている",1],["ダンボールを{集|あつ}めている",1],["おばけのかっこうを{練習|れんしゅう}している",1]]},{"text":"なぞなぞが{大好|だいす}き","balls":[["プレゼントのかくし{場所|ばしょ}の{地図|ちず}を{作|つく}っている",12],["プレゼントを{買|か}いに{行|い}く",6],["{手紙|てがみ}を{書|か}いている",4],["ケーキを{作|つく}る",3],["おめでとうと{言|い}うつもりだ",1],["{今日|きょう}はわざと{知|し}らんぷりしている",1],["ほねのおもちゃを{買|か}いに{行|い}った",1],["ダンボールを{集|あつ}めている",1],["おばけのかっこうを{練習|れんしゅう}している",1]]},{"text":"{明日|あした}、ひっこしをする","balls":[["ダンボールを{集|あつ}めている",12],["{手紙|てがみ}を{書|か}いている",6],["おめでとうと{言|い}うつもりだ",4],["プレゼントを{買|か}いに{行|い}く",3],["ケーキを{作|つく}る",1],["{今日|きょう}はわざと{知|し}らんぷりしている",1],["ほねのおもちゃを{買|か}いに{行|い}った",1],["プレゼントのかくし{場所|ばしょ}の{地図|ちず}を{作|つく}っている",1],["おばけのかっこうを{練習|れんしゅう}している",1]]},{"text":"おばけの{話|はなし}が{大好|だいす}き","balls":[["おばけのかっこうを{練習|れんしゅう}している",12],["プレゼントを{買|か}いに{行|い}く",6],["ケーキを{作|つく}る",4],["{手紙|てがみ}を{書|か}いている",3],["おめでとうと{言|い}うつもりだ",1],["{今日|きょう}はわざと{知|し}らんぷりしている",1],["ほねのおもちゃを{買|か}いに{行|い}った",1],["プレゼントのかくし{場所|ばしょ}の{地図|ちず}を{作|つく}っている",1],["ダンボールを{集|あつ}めている",1]]}]}};
+const GENRE = {"A":"{雨|あめ}の{日|ひ}","B":"たまご{料理|りょうり}","C":"{犬|いぬ}","D":"{休|やす}みの{日|ひ}","E":"{誕生日|たんじょうび}"};
 const QS=(new URLSearchParams(location.search).get("s")||"").toUpperCase();
 let lastSc=null;
 function pickSc(){ const ks=Object.keys(DATA); if(ks.includes(QS)) return QS; const pool=ks.filter(k=>k!==lastSc); const k=pool[Math.floor(Math.random()*pool.length)]; lastSc=k; return k; }
@@ -2570,8 +2583,10 @@ function stage(){ if(!DATA||!cur) return;
   const it=document.getElementById("intro"); if(it) it.style.display=(hist.length||revealed)?"none":"";
   const key=st+(busy?"b":""); if(key!==lastSt){ lastSt=key; if(!busy) focusActive(); } }
 /* STEP: visitor picks the continuation that fits — each distinct answer once, shuffled every time, tap = commit */
-function renderChoices(){ const d0=DATA[sc]; const opts=shuffle([...new Set(d0.base.map(x=>x[0]).concat(...shown.map(i=>d0.cards[i].balls.map(x=>x[0]))))]);
-  $("opts").innerHTML=""; opts.forEach(a=>{ const b=document.createElement("button"); b.className="opt go"; b.innerHTML=erb(DATA[sc].title+a);
+/* v17: the choose step always lists all 9 answers in fixed order (ordinary 1-4, gap 5-9) */
+function choiceSet(){ return Object.keys(DATA[sc].colors); }
+function renderChoices(){ const d0=DATA[sc]; const opts=choiceSet(); $("copen").innerHTML=erb(d0.title)+"……";
+  $("opts").innerHTML=""; opts.forEach(a=>{ const b=document.createElement("button"); b.className="opt go"; b.innerHTML=`<b class="onum">${num(a)}</b><span>${erb(a)}</span>`;
     b.onclick=()=>{ if(busy||chosen!==null) return; chosen=a; $("mychoice").innerHTML="あなたがえらんだ続き：「"+erb(DATA[sc].title+a)+"」"; $("mychoice").classList.remove("hid"); $("choose").classList.add("hid"); setBusy(false); };
     $("opts").appendChild(b); }); $("choose").classList.add("on"); }
 function markJar(){ const last=[...hist].reverse().find(h=>h.given>=0); const drawn=last?last.ans:null, same=drawn!==null&&drawn===chosen;
@@ -2579,7 +2594,7 @@ function markJar(){ const last=[...hist].reverse().find(h=>h.given>=0); const dr
   const els=[...document.querySelectorAll("#nowjar .ball")]; let t1=false,t2=false;
   els.forEach((el,i)=>{ const v=el.dataset.a, m=v===chosen, dr=!same&&v===drawn; el.classList.toggle("mine",m); el.classList.toggle("drawn",dr);
   });
-  const T=a=>erb(a);
+  const T=a=>nb(a)+`<span class="mt">${erb(a)}</span>`;
   $("marks").innerHTML=same?`<span><i class="mk1"></i><b class="tg">あなた・マシン</b>${T(chosen)}</span><span class="same">マシンと同じ答えを選びました</span>`
     :(chosen!==null?`<span><i class="mk1"></i><b class="tg">あなた</b>${T(chosen)}</span>`:"")+(drawn?`<span><i class="mk2"></i><b class="tg t2">マシン</b>${T(drawn)}</span>`:""); }
 function focusActive(){ if(!$("choose").classList.contains("hid")){ $("choose").scrollIntoView({behavior:"smooth",block:$("choose").offsetHeight<innerHeight-40?"center":"start"}); return; } const el=[...document.querySelectorAll("button.go")].find(x=>x.offsetParent!==null); if(el) el.scrollIntoView({behavior:"smooth",block:"center"}); }
@@ -2587,6 +2602,7 @@ const DRAW2="教えたあとで、もう一度考えてもらう";
 const FLIPS=1; /* cards flipped before the give step */
 let lastSt=null;
 function canNeta(){ return given>=0 && chosen!==null && hist.some(h=>h.given>=0); }
+function nb(a){ return `<i class="nb" style="background:${DATA[sc].colors[a]}">${num(a)}</i>`; }
 function num(a){ return Object.keys(DATA[sc].colors).indexOf(a)+1; }
 function esc(t){ return t.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
 function cardName(i){ return "『"+erb(DATA[sc].cards[i].text.replace(/。$/,""))+"』"; }
@@ -2671,14 +2687,18 @@ function draw(){
     later(()=>{ const el=balls[pickIdx]; if(el){ void el.offsetWidth; el.classList.add("pulse"); el.style.outline="4px solid "+getComputedStyle(document.documentElement).getPropertyValue("--pink2"); later(()=>el.style.outline="",1400);} fin(); },700);
   }
 }
+function renderBars(){ const d=DATA[sc], K=Object.keys(d.colors), f=l=>{ const m={}; l.forEach(([a,n])=>m[a]=n); return m; };
+  const B=f(d.base), A=given>=0?f(d.cards[given].balls):B, MAX=Math.max(...K.map(a=>Math.max(B[a]||0,A[a]||0)));
+  const bar=(n,c,pre)=>`<div class="bar${pre?" pre":""}" style="width:${n/MAX*100}%;background-color:${c};background-size:${100/n}% 100%"></div>`;
+  $("bars").innerHTML=K.map(a=>`<div class="brow" data-a="${esc(a)}" data-b="${B[a]||0}" data-n="${A[a]||0}">${nb(a)}<div class="bpair">${bar(B[a]||0,d.colors[a],true)}${bar(A[a]||0,d.colors[a],false)}</div></div>`).join(""); }
 function layout(n, solo){
-  const B=solo?36:28, P=solo?43:34, W=solo?236:186, H=solo?206:166, s=[];
-  const ox=(W-10-(4*P+B))/2;
-  for(let r=0;r<4;r++)for(let c=0;c<5;c++) s.push([ox+c*P, H-12-B-r*P]);
+  const B=solo?32:24, P=solo?38:29, W=solo?236:186, H=solo?206:166, s=[], C=6, R=Math.ceil(n/C);
+  const ox=(W-10-((C-1)*P+B))/2;
+  for(let r=0;r<R;r++)for(let c=0;c<C;c++) s.push([ox+c*P, H-12-B-r*P]);
   return s;
 }
 function jarHTML(id, list, solo){
-  const d=DATA[sc], S=layout(20, solo);
+  const d=DATA[sc], S=layout(list.length, solo);
   return `<div class="mjar${solo?" solo":""}" id="${id}">`+list.map((a,i)=>`<div class="ball" data-a="${esc(a)}" style="left:${S[i][0]}px;top:${S[i][1]}px;background:${d.colors[a]}">${num(a)}</div>`).join("")+`</div>`;
 }
 function renderReveal(animate, fromList){
@@ -2689,18 +2709,18 @@ function renderReveal(animate, fromList){
     h=`<div class="jcol"><div class="jcap">教える前の頭の中</div>${jarHTML("basejar",base,false)}</div>`+
       `<div class="jcol"><div class="jcap now">今の頭の中</div>${jarHTML("nowjar",animate?(fromList||base):cur,false)}</div>`;
   }
-  $("jars").innerHTML=h;
+  $("jars").innerHTML=h; renderBars();
   const present=new Set(base.concat(cur)); const top=solo?null:d.cards[given].balls[0][0];
-  $("legend").innerHTML=Object.keys(d.colors).filter(a=>present.has(a)).map(a=>`<span class="chip${a===top?" up":""}"><i style="background:${d.colors[a]}">${num(a)}</i>${erb(a)}${cur.includes(a)?"":"<small>教える前だけ</small>"}</span>`).join("");
+  $("legend").innerHTML=Object.keys(d.colors).filter(a=>present.has(a)).map(a=>`<span class="chip${a===top?" up":""}"><i style="background:${d.colors[a]}">${num(a)}</i><span class="mt">${erb(a)}</span></span>`).join("");
   $("msg").innerHTML=solo?"じつは、頭の中の玉を<br>ひとつ引いていただけ。":"じつは、玉を引いていただけ。<br>教えると、合う玉がふえていた。";
   $("msub").textContent=solo?"玉の色が、マシンの答え":"左が教える前、右が今。玉の色が、マシンの答え";
   
   if(animate && !solo){
     const from=(fromList||base).slice(), steps=planChange(from, d.cards[given].balls);
-    const els=[...document.querySelectorAll("#nowjar .ball")];
+    const els=[...document.querySelectorAll("#nowjar .ball")]; const STEP_MS=Math.min(450,Math.round(6500/Math.max(1,steps.length)));
     if(!busy) setBusy(true);
-    steps.forEach(([k,a],n)=>later(()=>{ const el=els[k]; el.style.background=d.colors[a]; el.textContent=num(a); el.dataset.a=a; el.classList.remove("pulse"); void el.offsetWidth; el.classList.add("pulse"); },500+n*450));
-    later(()=>{ markJar(); setBusy(false); }, 500+steps.length*450+300);
+    steps.forEach(([k,a],n)=>later(()=>{ const el=els[k]; el.style.background=d.colors[a]; el.textContent=num(a); el.dataset.a=a; el.classList.remove("pulse"); void el.offsetWidth; el.classList.add("pulse"); },500+n*STEP_MS));
+    later(()=>{ markJar(); setBusy(false); }, 500+steps.length*STEP_MS+300);
   } else { markJar(); setBusy(false); }
 }
 function neta(){
@@ -2727,6 +2747,16 @@ const _build=build; build=function(){ _build(); document.body.classList.toggle("
 // (e.g. GitHub Pages) and set its full URL here. The QR = RESULT_BASE_URL + '#' + payload.
 const RESULT_BASE_URL = 'https://dbycwyz.github.io/mottomo/result.html';
 const LOG_KEY = 'mottomo_log_v1';
+const PLAY_KEY = 'mottomo_playcount_v1'; // per-device plays, survives 記録を消す
+function bumpPlay(){ const n=(parseInt(localStorage.getItem(PLAY_KEY)||'0',10)||0)+1; localStorage.setItem(PLAY_KEY,String(n)); return n; }
+const FORM_ACTION_URL = ''; // TODO: form endpoint (undecided). Empty = queue only, never send.
+const OUTBOX_KEY = 'mottomo_outbox_v1';
+function queueOutbox(rec){ try{ const q=JSON.parse(localStorage.getItem(OUTBOX_KEY)||'[]'); if(!q.some(x=>x.rid===rec.rid)){ q.push(rec); localStorage.setItem(OUTBOX_KEY, JSON.stringify(q)); } }catch(e){} }
+const PC_KEY = 'mottomo_pc_v1'; // staff setting, survives 記録を消す
+function isPhone(){ return /iPhone|iPod|Android.+Mobile|Windows Phone/i.test(navigator.userAgent) || (matchMedia("(pointer:coarse)").matches && Math.min(screen.width,screen.height)<600); }
+function getPC(){ const n=parseInt(localStorage.getItem(PC_KEY)||'1',10); return n>0?n:1; }
+function newRid(){ const A='0123456789abcdefghjkmnpqrstvwxyz', u=new Uint8Array(12); crypto.getRandomValues(u); return Array.from(u,x=>A[x&31]).join(''); } // 12 chars, 60 bits
+let rid=null, lastRec=null;
 // Staff PIN for the footer-tap route (5 taps within 2 s -> number pad). Ctrl+Shift+E skips the PIN.
 const STAFF_PIN = '2580';
 let logged = false, lastPayload = null;
@@ -2744,19 +2774,19 @@ function machineAfter(){ const h=[...hist].reverse().find(x=>x.given>=0); return
 function logRecord(){
   if(logged) return; logged=true;
   const d=DATA[sc], bef=machineBefore(), aft=machineAfter();
-  const rec={ t:isoLocal(new Date()), sc, title:plain(d.title),
+  const rec={ rid:rid||newRid(), dev:isPhone()?"phone":"pc", pc:getPC(), play:bumpPlay(), t:isoLocal(new Date()), sc, title:plain(d.title),
     flipped:shown.map(i=>plain(d.cards[i].text)).join(" / "),
     choice:chosen===null?"":plain(chosen), before:bef===null?"":plain(bef),
     given:given>=0?plain(d.cards[given].text):"", after:aft===null?"":plain(aft),
     same:aft!==null&&aft===chosen, draws:hist.length };
-  const a=readLog(); a.push(rec); writeLog(a);
+  lastRec=rec; const a=readLog(); a.push(rec); writeLog(a); queueOutbox(rec);
 }
 /* 4. compact payload: indices into DATA (result.html carries the same DATA).
    Keeps the QR small (all answer texts in Japanese would need a ~v17 QR). */
 function b64url(str){ const u=new TextEncoder().encode(str); let b=""; u.forEach(x=>b+=String.fromCharCode(x)); return btoa(b).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,""); }
 function makePayload(){
   const d=DATA[sc], ix=a=>a===null?-1:num(a)-1, bef=machineBefore(), aft=machineAfter(), now=new Date();
-  const p={v:1,h:DATA_FP,s:sc,f:shown.slice(),g:given,c:ix(chosen),b:ix(bef),a:ix(aft),d:`${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`};
+  const p={v:2,h:DATA_FP,r:lastRec?lastRec.rid:rid,t:lastRec&&lastRec.dev==="phone"?"p":"c",n:getPC(),k:lastRec?lastRec.play:0,s:sc,f:shown.slice(),g:given,c:ix(chosen),b:ix(bef),a:ix(aft),d:`${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`};
   return b64url(JSON.stringify(p));
 }
 function clearQR(){ $("qrwrap").classList.remove("on"); $("qrimg").innerHTML=""; }
@@ -2767,7 +2797,7 @@ function showQR(){
     const q=qrcode(0,"M"); q.addData(url,"Byte"); q.make();
     $("qrimg").innerHTML=q.createSvgTag({cellSize:4,margin:4,scalable:true});
     $("qrimg").dataset.url=url; $("qrimg").dataset.ver=String((q.getModuleCount()-17)/4);
-    $("qrwrap").classList.add("on");
+    $("qrwrap").classList.add("on"); requestAnimationFrame(()=>$("qrwrap").scrollIntoView({behavior:"smooth",block:"center"}));
   }catch(e){ clearQR(); }
 }
 function waitQR(){ later(()=>{ if(revealed&&!busy) showQR(); else waitQR(); },250); }
@@ -2777,25 +2807,42 @@ function neta16(){
   neta(); waitQR();
 }
 $("neta").onclick=neta16;
-{ const _b16=build; build=function(){ _b16(); logged=false; lastPayload=null; clearQR(); }; }
+{ const _b16=build; build=function(){ _b16(); rid=newRid(); $("next").textContent=isPhone()?"もう一回あそぶ":"次の人へ"; logged=false; lastPayload=null; clearQR(); }; }
 
 /* 2. hidden staff panel: Ctrl+Shift+E, or tap the footer 5 times within 3 s */
 function csvCell(v){ v=String(v==null?"":v); return /[",\r\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v; }
-function exportCSV(){
+function exportCSV(auto){
   const a=readLog();
-  const head=["日時","話の記号","書き出し","めくったカード","来た人がえらんだ続き","教える前のマシンの答え","教えたカード","教えたあとのマシンの答え","マシンと同じ答え","答えを出した回数"];
-  const rows=a.map(r=>[r.t,r.sc,r.title,r.flipped,r.choice,r.before,r.given,r.after,r.same?"同じ":"ちがう",r.draws]);
+  const head=["記録ID","端末","PC番号","この端末での回数","日時","話の記号","書き出し","めくったカード","来た人がえらんだ続き","教える前のマシンの答え","教えたカード","教えたあとのマシンの答え","マシンと同じ答え","答えを出した回数"];
+  const rows=a.map(r=>[r.rid||"",r.dev||"",r.pc||"",r.play||"",r.t,r.sc,r.title,r.flipped,r.choice,r.before,r.given,r.after,r.same?"同じ":"ちがう",r.draws]);
   const csv="\uFEFF"+[head].concat(rows).map(r=>r.map(csvCell).join(",")).join("\r\n")+"\r\n";
-  const n=new Date(), name=`mottomo_log_${n.getFullYear()}${pad(n.getMonth()+1)}${pad(n.getDate())}_${pad(n.getHours())}${pad(n.getMinutes())}.csv`;
+  const n=new Date(), name=`mottomo_log_pc${getPC()}_${n.getFullYear()}${pad(n.getMonth()+1)}${pad(n.getDate())}_${pad(n.getHours())}${pad(n.getMinutes())}.csv`;
   const url=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));
   const l=document.createElement("a"); l.href=url; l.download=name; document.body.appendChild(l); l.click(); l.remove();
   setTimeout(()=>URL.revokeObjectURL(url),4000);
-  $("smsg").textContent=`${name} を書き出しました（${a.length}件）`;
+  if(!auto) $("smsg").textContent=`${name} を書き出しました（${a.length}件）`; return name;
 }
 function staffRefresh(){ $("scount").textContent=`記録：${readLog().length}件（このブラウザの中に保存）`; }
-function staffOpen(){ staffRefresh(); $("smsg").textContent=""; $("staff").classList.add("on"); }
+function staffOpen(){ $("spcno").value=getPC(); autoRefreshUI(); staffRefresh(); $("smsg").textContent=""; $("staff").classList.add("on"); }
 function staffClose(){ $("staff").classList.remove("on"); }
-$("sexp").onclick=exportCSV;
+$("sexp").onclick=()=>exportCSV(false);
+/* auto-save: interval can be shortened for tests with ?autosave_ms=NNN */
+const AUTO_KEY='mottomo_autosave_on_v1', AUTO_LAST='mottomo_autosave_last_v1';
+const AUTOSAVE_MS=(()=>{ const q=parseInt(new URLSearchParams(location.search).get("autosave_ms")||"",10); return q>0?q:30*60*1000; })();
+function autoOn(){ if(isPhone()) return false; const v=localStorage.getItem(AUTO_KEY); return v===null?true:v==="1"; }
+function autoLast(){ try{ return JSON.parse(localStorage.getItem(AUTO_LAST)||"null"); }catch(e){ return null; } }
+function autoRefreshUI(){ const ph=isPhone(); $("sauto").checked=autoOn(); $("sauto").disabled=ph; const l=autoLast();
+  $("sautoinfo").textContent=ph?"スマホでは自動保存しません":l?`さいごの自動保存：${l.t.replace("T"," ").slice(0,16)}（${l.n}件）${l.file?" "+l.file:""}`:"さいごの自動保存：まだありません"; }
+function autoSaveTick(){
+  if(!autoOn()) return null; const a=readLog(); if(!a.length) return null;
+  const last=autoLast(), lastRid=a[a.length-1].rid||"";
+  if(last && last.rid===lastRid && last.n===a.length) return null; /* nothing new */
+  const file=exportCSV(true); localStorage.setItem(AUTO_LAST, JSON.stringify({t:isoLocal(new Date()), n:a.length, rid:lastRid, file}));
+  if($("staff").classList.contains("on")) autoRefreshUI(); return file;
+}
+if(!isPhone()) setInterval(autoSaveTick, AUTOSAVE_MS);
+$("sauto").addEventListener("change",()=>{ localStorage.setItem(AUTO_KEY,$("sauto").checked?"1":"0"); autoRefreshUI(); });
+$("spcno").addEventListener("change",()=>{ const n=parseInt($("spcno").value,10); if(n>0&&n<100){ localStorage.setItem(PC_KEY,String(n)); $("smsg").textContent=`PC番号を ${n} にしました`; } else $("spcno").value=getPC(); });
 $("sdel").onclick=()=>{ const n=readLog().length;
   if(!confirm(`記録 ${n}件 を消します。先にCSVを書き出しましたか？`)) return;
   if(!confirm("本当に消しますか？ もとにもどせません。")) return;
