@@ -178,7 +178,7 @@ ruby rt{font-size:.5em;font-weight:600;color:#666;letter-spacing:0}
 .copen{font-size:18px;font-weight:700;color:#333;margin:0 0 8px;line-height:1.9}
 @media (max-width:600px){.opts{grid-template-columns:1fr}}
 .marks .tg{white-space:nowrap;flex:none}.marks span .mt,.chip .mt{display:inline;text-align:left}.marks>span{max-width:100%}
-.barbox{max-width:440px;margin:10px auto 4px;background:#fff;border:2px solid #f0e2dc;border-radius:16px;padding:10px 12px;text-align:left}.bcap{font-size:18px;font-weight:700;line-height:1.9;color:#333}.bleg{display:flex;gap:14px;font-size:14px;color:#555;margin:2px 0 6px;line-height:1.9}.bleg span{display:inline-flex;align-items:center;gap:4px}.bsw{display:inline-block;width:22px;height:10px;border-radius:3px;background:#777}.bsw.pre{opacity:.35}.brow{display:grid;grid-template-columns:32px 1fr;align-items:center;gap:6px;margin:5px 0}.bpair{display:flex;flex-direction:column;gap:3px}.bar{height:12px;border-radius:3px;min-width:6px;background-image:linear-gradient(90deg,transparent calc(100% - 2px),#fff 0);background-repeat:repeat-x}.bar.pre{opacity:.35}
+.barbox{max-width:440px;margin:10px auto 4px;background:#fff;border:2px solid #f0e2dc;border-radius:16px;padding:10px 12px;text-align:left}.bcap{font-size:18px;font-weight:700;line-height:1.9;color:#333}.bleg{display:flex;gap:14px;font-size:14px;color:#555;margin:2px 0 6px;line-height:1.9}.bleg span{display:inline-flex;align-items:center;gap:4px}.bsw{display:inline-block;width:12px;height:12px;border-radius:50%;background:#777}.bsw.pre{opacity:.35}.brow{display:grid;grid-template-columns:32px 1fr;align-items:center;gap:6px;margin:5px 0}.bpair{display:flex;flex-direction:column;gap:3px}.dots{display:flex;flex-wrap:wrap;gap:2px;min-height:11px;align-items:center}.dot{display:inline-block;width:11px;height:11px;border-radius:50%;box-shadow:inset -2px -3px 0 rgba(0,0,0,.15),inset 2px 2px 0 rgba(255,255,255,.35)}.dots.pre{opacity:.35}
 .staff .smsg{font-size:14px;color:#555;margin-top:10px;min-height:20px}
 </style></head>
 <body>
@@ -2689,7 +2689,7 @@ function draw(){
 }
 function renderBars(){ const d=DATA[sc], K=Object.keys(d.colors), f=l=>{ const m={}; l.forEach(([a,n])=>m[a]=n); return m; };
   const B=f(d.base), A=given>=0?f(d.cards[given].balls):B, MAX=Math.max(...K.map(a=>Math.max(B[a]||0,A[a]||0)));
-  const bar=(n,c,pre)=>`<div class="bar${pre?" pre":""}" style="width:${n/MAX*100}%;background-color:${c};background-size:${100/n}% 100%"></div>`;
+  const bar=(n,c,pre)=>`<div class="dots${pre?" pre":""}">`+Array.from({length:n},()=>`<i class="dot" style="background:${c}"></i>`).join("")+`</div>`;
   $("bars").innerHTML=K.map(a=>`<div class="brow" data-a="${esc(a)}" data-b="${B[a]||0}" data-n="${A[a]||0}">${nb(a)}<div class="bpair">${bar(B[a]||0,d.colors[a],true)}${bar(A[a]||0,d.colors[a],false)}</div></div>`).join(""); }
 function layout(n, solo){
   const B=solo?32:24, P=solo?38:29, W=solo?236:186, H=solo?206:166, s=[], C=6, R=Math.ceil(n/C);
