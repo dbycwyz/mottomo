@@ -2601,7 +2601,7 @@ function markJar(){ const last=[...hist].reverse().find(h=>h.given>=0); const dr
   const T=a=>nb(a)+`<span class="mt">${erb(a)}</span>`;
   $("marks").innerHTML=same?`<span><i class="mk1"></i><b class="tg">あなた・マシン</b>${T(chosen)}</span><span class="same">マシンと同じ答えを選びました</span>`
     :(chosen!==null?`<span><i class="mk1"></i><b class="tg">あなた</b>${T(chosen)}</span>`:"")+(drawn?`<span><i class="mk2"></i><b class="tg t2">マシン</b>${T(drawn)}</span>`:""); }
-function focusActive(){ if(!$("choose").classList.contains("hid")){ $("choose").scrollIntoView({behavior:"smooth",block:$("choose").offsetHeight<innerHeight-40?"center":"start"}); return; } const el=[...document.querySelectorAll("button.go")].find(x=>x.offsetParent!==null); if(el) el.scrollIntoView({behavior:"smooth",block:"center"}); }
+function focusActive(){ if(revealed){ const bb=document.querySelector(".barbox"); if(bb&&bb.offsetParent) bb.scrollIntoView({behavior:"smooth",block:bb.offsetHeight<innerHeight-40?"center":"start"}); return; } if(!$("choose").classList.contains("hid")){ $("choose").scrollIntoView({behavior:"smooth",block:$("choose").offsetHeight<innerHeight-40?"center":"start"}); return; } const el=[...document.querySelectorAll("button.go")].find(x=>x.offsetParent!==null); if(el) el.scrollIntoView({behavior:"smooth",block:"center"}); }
 const DRAW2="教えたあとで、もう一度考えてもらう";
 const FLIPS=1; /* cards flipped before the give step */
 let lastSt=null;
@@ -2852,7 +2852,7 @@ function showQR(){
     const q=qrcode(0,"M"); q.addData(url,"Byte"); q.make();
     $("qrimg").innerHTML=q.createSvgTag({cellSize:4,margin:4,scalable:true});
     $("qrimg").dataset.url=url; $("qrlink").href=url; $("qrbtn").href=url; if(isPhone()){ $("qrbtn").style.display="inline-block"; $("qcap").innerHTML="QRコードをタップしても、<ruby>結果<rt>けっか</rt></ruby>のページが<ruby>開<rt>ひら</rt></ruby>きます"; } $("qrimg").dataset.ver=String((q.getModuleCount()-17)/4);
-    $("qrwrap").classList.add("on"); requestAnimationFrame(()=>$("qrwrap").scrollIntoView({behavior:"smooth",block:"center"}));
+    $("qrwrap").classList.add("on");
   }catch(e){ clearQR(); }
 }
 function waitQR(){ later(()=>{ if(revealed&&!busy) showQR(); else waitQR(); },250); }
