@@ -184,6 +184,7 @@ ruby rt{font-size:.5em;font-weight:600;color:#666;letter-spacing:0}
 button,.opt,.genre,.tab{word-break:keep-all;overflow-wrap:anywhere}
 .nwrap .nbtn{padding:14px 18px}
 @media (max-width:480px){.wrap{padding:8px 8px 16px;gap:12px}.panel{padding:14px 12px}.stage,.jars{zoom:.85}h1{font-size:30px}}
+html,body{overflow-anchor:none}
 </style></head>
 <body>
 <header>
@@ -2747,6 +2748,7 @@ function neta(){
     revealed=true; $("stage").style.display="none"; $("nwrap").style.display="none";
     $("mtitle").textContent="ネタ明かし：マシンの頭の中"; document.querySelector(".wrap").classList.add("done"); $("foot").textContent=FOOT_OPEN;
     $("reveal").className="reveal on"; document.body.classList.add("isdone"); renderHist(); busy=false; renderReveal(given>=0, null);
+    const jj=$("jars"); if(jj&&jj.offsetParent) jj.scrollIntoView({behavior:"smooth",block:jj.offsetHeight<innerHeight-160?"center":"start"});
   },1000);
 }
 $("draw").onclick=draw; $("flip").onclick=flip; $("neta").onclick=neta;
